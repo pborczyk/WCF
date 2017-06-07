@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TrainsService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TrainsService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="PathsQuery">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ArrivalTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LeavingTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SourceCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TargetCity" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PathsQuery" nillable="true" type="tns:PathsQuery" />
+  <xs:complexType name="ArrayOfPath">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Path" nillable="true" type="tns:Path" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPath" nillable="true" type="tns:ArrayOfPath" />
+  <xs:complexType name="Path">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Value" nillable="true" type="q1:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Path" nillable="true" type="tns:Path" />
+</xs:schema>
